@@ -1,11 +1,15 @@
 package org.research.brand;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.common.collect.Lists;
 
 /**
  * Handles requests for the application home page.
@@ -27,7 +31,21 @@ public class HomeController {
 	@RequestMapping(value="/initialize", method=RequestMethod.GET)
 	public @ResponseBody BrandViewModel getInitialPageDate(){
 		System.out.println("In Controller Method !!!!");
-		return new BrandViewModel("jQuery getJSON is working !!!!");
+		
+		List<SelectItem> brandTypes = Lists.newArrayList();
+		brandTypes.add(new SelectItem("N", "National"));
+		brandTypes.add(new SelectItem("P", "Private"));
+		brandTypes.add(new SelectItem("E", "Exclusive"));
+		
+		List<SelectItem> statusCodes = Lists.newArrayList();
+		statusCodes.add(new SelectItem("ACTV", "Active"));
+		statusCodes.add(new SelectItem("INTV", "Inactive"));
+		statusCodes.add(new SelectItem("OBSL", "Obsolete"));
+		
+		BrandViewModel model = new BrandViewModel("jQuery getJSON is working !!!!");
+		model.setBrandTypes(brandTypes);
+		model.setStatusCodes(statusCodes);
+		return model;
 	}
 	
 }

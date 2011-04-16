@@ -38,14 +38,23 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			testJSON();
+			initialize();
 	 	});		
 		
-		function testJSON(){
+		function initialize(){
 			$.getJSON("initialize", function(model){
-				alert(model.message);
+				populateDropdown($("#brandType"), model.brandTypes);
+				populateDropdown($("#brandStatus"), model.statusCodes);
 			});
 		}
+		
+		function populateDropdown(select, data) {
+	        select.html('');
+	        $.each(data, function(id, option) {
+	            select.append($('<option></option>').val(option.value).html(option.label));
+	        });      
+	    }
+		
 	</script>
 </head>
 <body>
