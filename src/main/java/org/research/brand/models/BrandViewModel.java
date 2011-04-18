@@ -1,12 +1,14 @@
-package org.research.brand;
+package org.research.brand.models;
 
 import java.util.List;
+
 
 public class BrandViewModel {
 
 	private String message;
 	private List<SelectItem> brandTypes;
 	private List<SelectItem> statusCodes;
+	private List<Brand> brands;
 
 	public BrandViewModel(String message){
 		this.message = message;
@@ -33,5 +35,13 @@ public class BrandViewModel {
 
 	public void setStatusCodes(List<SelectItem> statusCodes) {
 		this.statusCodes = statusCodes;
+	}
+	
+	public List<Brand> getBrands() {
+		return brands;
+	}
+	
+	public void setBrands(List<Brand> brands) {
+		this.brands = brands;
 	}
 }

@@ -1,4 +1,4 @@
-package org.research.brand;
+package org.research.brand.models;
 
 public class SelectItem {
 	private String value;

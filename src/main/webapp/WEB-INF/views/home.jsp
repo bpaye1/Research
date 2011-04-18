@@ -28,33 +28,67 @@
 			border-width: 1px;
 		}
 		
-		th{
-			font-style: italic;
-			border-style: solid;
-			border-width: 1px;
+		table{
+			border-collapse: collapse;
 		}
+		
+		th{
+			border-style: solid;
+			border-width: 1px;		
+		}
+		
+		td{
+		
+		]
 		
 	</style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			initialize();
-	 	});		
+	 	});
 		
 		function initialize(){
 			$.getJSON("initialize", function(model){
 				populateDropdown($("#brandType"), model.brandTypes);
 				populateDropdown($("#brandStatus"), model.statusCodes);
 			});
+			
+			$("#searchButton").click(function(event){
+				search();
+			});
+		}
+		
+		function search(){
+			$.getJSON("search", function(model){
+				populateTable($("#tableData"), model.brands);
+			});
 		}
 		
 		function populateDropdown(select, data) {
 	        select.html('');
-	        $.each(data, function(id, option) {
+	        $.each(data, function(id, option) {	       
 	            select.append($('<option></option>').val(option.value).html(option.label));
 	        });      
 	    }
 		
+		function populateTable(body, data){
+			 body.html('');
+			 $.each(data, function(id, brand){				
+				var row = $("<tr>");
+				populateTableCell(brand.type, brand.type, row);
+				populateTableCell(brand.number, brand.number, row);
+				populateTableCell(brand.name, brand.name, row);
+				populateTableCell(brand.status, brand.status, row);
+				row.appendTo(body);
+			 });
+		}
+		
+		function populateTableCell(text, value, row){
+			$("<td>")
+		 		.text(text)
+		 		.appendTo(row);
+		}
 	</script>
 </head>
 <body>
@@ -118,8 +152,8 @@
 			<li>Last</li>
 		</ul>
 		<br/>
-		<table id="data">
-			<thead>
+		<table>
+			<thead id="tableHeader">
 				<tr>
 					<th>Brand Type</th>
 					<th>Brand Number</th>
@@ -127,6 +161,9 @@
 					<th>Brand Status</th>				
 				</tr>
 			</thead>
+			<tbody id="tableData">
+			
+			</tbody>
 		</table>
 	</div>
 </body>

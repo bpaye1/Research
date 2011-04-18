@@ -2,6 +2,11 @@ package org.research.brand;
 
 import java.util.List;
 
+import org.research.brand.models.Brand;
+import org.research.brand.models.Brand.BrandStatusCode;
+import org.research.brand.models.Brand.BrandType;
+import org.research.brand.models.BrandViewModel;
+import org.research.brand.models.SelectItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -29,7 +34,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/initialize", method=RequestMethod.GET)
-	public @ResponseBody BrandViewModel getInitialPageDate(){
+	public @ResponseBody BrandViewModel getInitialPageData(){
 		System.out.println("In Controller Method !!!!");
 		
 		List<SelectItem> brandTypes = Lists.newArrayList();
@@ -48,5 +53,22 @@ public class HomeController {
 		return model;
 	}
 	
+	@RequestMapping(value="/search", method=RequestMethod.GET)
+	public @ResponseBody BrandViewModel getData(){
+		List<Brand> brands = Lists.newArrayList();
+		brands.add(new Brand(BrandType.PRIVATE, 1, "My Own TVs", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.PRIVATE, 2, "My Own DVDs", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.PRIVATE, 3, "My Own Books", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 4, "Turtle", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 5, "Dog", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 6, "Cat", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 7, "Bird", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 8, "Highway 5", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 9, "Collin", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 10, "Dallas", BrandStatusCode.ACTIVE));
+		BrandViewModel model = new BrandViewModel("jQuery getJSON is working !!!!");
+		model.setBrands(brands);
+		return model;
+	}
 }
 
