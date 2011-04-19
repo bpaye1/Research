@@ -1,0 +1,50 @@
+
+#search li{
+	display:inline;	
+	float: left;
+	margin-right : 10px;
+	text-decoration: none;
+	list-style-type: none;
+}
+#searchCrireria li{
+	
+}
+#searchActions li{
+	
+}
+#pagination li{
+	display:inline;	
+	float: left;
+	margin-right : 5px;
+	text-decoration: none;
+	list-style-type: none;
+	color: navy;
+	border-style: solid;
+	border-width: 1px;
+}
+
+table{
+	border-style: none;
+	color: #003399;
+	border-collapse:collapse;
+}
+
+th{
+	padding: 10px 8px;
+	border-bottom-style :solid;
+	border-bottom-width :2px;
+	border-bottom-color:#6678B1;
+	font-weight: normal;
+	text-align: left;
+	font-size: 14px;
+}
+
+tr{
+	border-color: inherit;
+	border-bottom-style :solid;
+	border-bottom-width :1px;
+}
+
+td{
+	padding: 10px 8px;
+}

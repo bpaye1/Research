@@ -2,7 +2,7 @@ package org.research.brand.models;
 
 public class Brand {
 
-	//Test Comments
+	
 	public enum BrandType{PRIVATE, NATIONAL, EXCLUSIVE};
 	public enum BrandStatusCode{ACTIVE, INACTIVE};
 	

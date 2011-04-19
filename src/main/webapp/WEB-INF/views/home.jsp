@@ -3,93 +3,9 @@
 <html>
 <head>
 	<title>Brand Administration</title>
-	<style type="text/css">
-		#search li{
-			display:inline;	
-			float: left;
-			margin-right : 10px;
-			text-decoration: none;
-			list-style-type: none;
-		}
-		#searchCrireria li{
-			
-		}
-		#searchActions li{
-			
-		}
-		#pagination li{
-			display:inline;	
-			float: left;
-			margin-right : 5px;
-			text-decoration: none;
-			list-style-type: none;
-			color: navy;
-			border-style: solid;
-			border-width: 1px;
-		}
-		
-		table{
-			border-collapse: collapse;
-		}
-		
-		th{
-			border-style: solid;
-			border-width: 1px;		
-		}
-		
-		td{
-		
-		]
-		
-	</style>
+	<link rel="stylesheet" href="<c:url value="/resources/home.css" />" type="text/css" media="screen, projection">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			initialize();
-	 	});
-		
-		function initialize(){
-			$.getJSON("initialize", function(model){
-				populateDropdown($("#brandType"), model.brandTypes);
-				populateDropdown($("#brandStatus"), model.statusCodes);
-			});
-			
-			$("#searchButton").click(function(event){
-				search();
-			});
-		}
-		
-		function search(){
-			$.getJSON("search", function(model){
-				populateTable($("#tableData"), model.brands);
-			});
-		}
-		
-		function populateDropdown(select, data) {
-	        select.html('');
-	        $.each(data, function(id, option) {	       
-	            select.append($('<option></option>').val(option.value).html(option.label));
-	        });      
-	    }
-		
-		function populateTable(body, data){
-			 body.html('');
-			 $.each(data, function(id, brand){				
-				var row = $("<tr>");
-				populateTableCell(brand.type, brand.type, row);
-				populateTableCell(brand.number, brand.number, row);
-				populateTableCell(brand.name, brand.name, row);
-				populateTableCell(brand.status, brand.status, row);
-				row.appendTo(body);
-			 });
-		}
-		
-		function populateTableCell(text, value, row){
-			$("<td>")
-		 		.text(text)
-		 		.appendTo(row);
-		}
-	</script>
+	<script type="text/javascript" src="<c:url value="/resources/home.js" /> "></script>
 </head>
 <body>
 	<div id="header">
