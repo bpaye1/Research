@@ -48,11 +48,57 @@
 			<li>
 				<input id="searchButton" type="button" value="Search">
 			</li>
+			<li>
+				<input id="addButton" type="button" value="Add">
+			</li>
 		</ul>
 		<br/>
 		<hr/>
 	</div>
-	<div id="content">
+	<div id="addBrandPanel">
+	 	<fieldset>
+	 		<legend>Add Brand</legend>
+	 		<ul>
+			<li>
+				<label for="addBrandNumber" >
+					Brand Number:
+				</label>
+				<input id="addBrandNumber" type="text" maxlength="6"  size="10"/>
+			</li>
+			<li>
+				<label for="addBrandName" >
+					Brand Name:
+				</label>
+				<input id="addBrandName" type="text" size="10"/>
+			</li>
+			<li>
+				<label for="addBrandType" >
+					Brand Type:
+				</label>
+				<select id="addBrandType" >
+				</select>
+			</li>
+			<li>
+				<label for="addBrandStatus"  >
+					Brand Status:
+				</label>
+				<select id="addBrandStatus" >
+				</select>
+			</li>			
+		</ul>
+		<br/>
+		<ul>
+			<li>
+				<input id="cancelAddButton" type="button" value="Cancel">
+			</li>
+			<li>
+				<input id="saveButton" type="button" value="Save">
+			</li>
+		</ul>
+		<br/>
+	    </fieldset>
+	</div>
+	<div>
 		<ul id="pagination">
 			<li>First</li>
 			<li>1</li>
@@ -75,6 +121,8 @@
 					<th>Brand Number</th>
 					<th>Brand Name</th>
 					<th>Brand Status</th>				
+					<th></th>
+					<th></th>	
 				</tr>
 			</thead>
 			<tbody id="tableData">

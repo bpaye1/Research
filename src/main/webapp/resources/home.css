@@ -6,12 +6,21 @@
 	text-decoration: none;
 	list-style-type: none;
 }
-#searchCrireria li{
-	
+
+#addBrandPanel li {
+	text-decoration: none;
+	list-style-type: none;
 }
-#searchActions li{
-	
+
+#addBranPanel li label {
+	 display:  inline-block;
+     float: left;
+     text-align: left;
+     width: 100px;
+     padding: .5em;
+     padding-left: 0;	
 }
+    
 #pagination li{
 	display:inline;	
 	float: left;
