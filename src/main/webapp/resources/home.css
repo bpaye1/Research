@@ -7,20 +7,31 @@
 	list-style-type: none;
 }
 
-#addBrandPanel li {
+#addBrandPanel ul {
 	text-decoration: none;
 	list-style-type: none;
+	
 }
 
-#addBranPanel li label {
-	 display:  inline-block;
-     float: left;
-     text-align: left;
-     width: 100px;
-     padding: .5em;
-     padding-left: 0;	
+#addBrandPanel li {
+	display: block;
+	margin-right : 10px;
+	margin-bottom : 10px;
 }
-    
+
+#addBrandPanel li label{
+	float: left;
+	display: block;
+    width: 100px;
+}
+
+#addBrandActions li{
+	float: left;
+	display: inline;
+	margin-right : 10px;
+	margin-bottom : 10px;
+}
+
 #pagination li{
 	display:inline;	
 	float: left;
@@ -56,4 +67,5 @@ tr{
 
 td{
 	padding: 10px 8px;
+	text-transform: capitalize;
 }

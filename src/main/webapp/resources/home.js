@@ -46,27 +46,43 @@ function populateTable(body, data){
 		$("<td>").text(brand.number).appendTo(row);
 		$("<td>").text(brand.name).appendTo(row);
 		$("<td>").text(brand.status).appendTo(row);
-		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#'>edit</a>").appendTo(row);		
-		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#'>remove</a>").appendTo(row);		
-		
+		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#'>Edit</a>").appendTo(row);		
+		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#'>Remove</a>").appendTo(row);		
+	
 		$("#" + generateEditButtonId(id)).live("click", function(event){
-			alert("Saving " + brand.name);
+			var editrow = $("<tr>");
+			$("<td>").append("<input type='text' id='editBrandType' value='" + brand.type + "' />").appendTo(editrow);
+		 	$("<td>").append("<input type='text' id='editBrandNumber' value='" + brand.number + "'/>").appendTo(editrow);
+		 	$("<td>").append("<input type='text' id='editBrandName' value='" + brand.name + "'/>").appendTo(editrow);
+		 	$("<td>").append("<input type='text' id='editBrandStatus' value='" + brand.status + "'/>").appendTo(editrow);
+		 	$("<td>").append("<a id='saveEditButton' href='#'>Save</a>").appendTo(editrow);
+		 	$("<td>").append("<a id='cancelEditButton' href='#'>Cancel</a>").appendTo(editrow);
+	
+		 	row.hide();
+		 	editrow.insertAfter(row);
+		 	
+		 	$("#cancelEditButton").live("click", function(event){
+		 		editrow.hide();
+		 		row.show();
+		 	});
 		});
 		
 		$("#" + generateRemoveButtonId(id)).live("click", function(event){
-			alert("Removing " + brand.name);
+			
 		});
 		
 		row.appendTo(body);
 		
 	 });
+	 
+	 function generateEditButtonId(id){
+		return editButtonId = "editButton" + id;
+	 }
+
+	 function generateRemoveButtonId(id){
+		return editButtonId = "removeButton" + id;
+	 }
 }
 
-function generateEditButtonId(id){
-	return editButtonId = "editButton" + id;
-}
 
-function generateRemoveButtonId(id){
-	return editButtonId = "removeButton" + id;
-}
 

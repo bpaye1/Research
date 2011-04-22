@@ -58,44 +58,43 @@
 	<div id="addBrandPanel">
 	 	<fieldset>
 	 		<legend>Add Brand</legend>
-	 		<ul>
-			<li>
-				<label for="addBrandNumber" >
-					Brand Number:
-				</label>
-				<input id="addBrandNumber" type="text" maxlength="6"  size="10"/>
-			</li>
-			<li>
-				<label for="addBrandName" >
-					Brand Name:
-				</label>
-				<input id="addBrandName" type="text" size="10"/>
-			</li>
-			<li>
-				<label for="addBrandType" >
-					Brand Type:
-				</label>
-				<select id="addBrandType" >
-				</select>
-			</li>
-			<li>
-				<label for="addBrandStatus"  >
-					Brand Status:
-				</label>
-				<select id="addBrandStatus" >
-				</select>
-			</li>			
-		</ul>
-		<br/>
-		<ul>
-			<li>
-				<input id="cancelAddButton" type="button" value="Cancel">
-			</li>
-			<li>
-				<input id="saveButton" type="button" value="Save">
-			</li>
-		</ul>
-		<br/>
+	 		<ul id="addBrandForm">
+				<li>
+					<label class="addBrandField" for="addBrandNumber" >
+						Brand Number:
+					</label>
+					<input id="addBrandNumber" type="text" maxlength="6"  size="10"/>
+				</li>
+				<li class="addBrandField">
+					<label for="addBrandName" >
+						Brand Name:
+					</label>
+					<input id="addBrandName" type="text" size="10"/>
+				</li>
+				<li class="addBrandField">
+					<label for="addBrandType" >
+						Brand Type:
+					</label>
+					<select id="addBrandType" >
+					</select>
+				</li>
+				<li class="addBrandField">
+					<label for="addBrandStatus"  >
+						Brand Status:
+					</label>
+					<select id="addBrandStatus" >
+					</select>
+				</li>			
+			</ul>
+			<ul id="addBrandActions">
+				<li>
+					<input id="cancelAddButton" type="button" value="Cancel">
+				</li>
+				<li>
+					<input id="saveButton" type="button" value="Save">
+				</li>
+			</ul>
+			<br/>
 	    </fieldset>
 	</div>
 	<div>
