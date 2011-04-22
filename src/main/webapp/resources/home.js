@@ -5,11 +5,12 @@ $(document).ready(function(){
 
 function initialize(){
 	$.getJSON("initialize", function(model){
-		$("#addBrandPanel").hide();
+		$("#addBrandPanel").hide();		
 		populateDropdown($("#brandType"), model.brandTypes);
 		populateDropdown($("#brandStatus"), model.statusCodes);
 		populateDropdown($("#addBrandType"), model.brandTypes);
 		populateDropdown($("#addBrandStatus"), model.statusCodes);
+		$("#dataPanel").hide();	
 	});
 	
 	$("#searchButton").click(function(event){
@@ -28,6 +29,7 @@ function initialize(){
 function search(){
 	$.getJSON("search", function(model){
 		populateTable($("#tableData"), model.brands);
+		$("#dataPanel").show();	
 	});
 }
 

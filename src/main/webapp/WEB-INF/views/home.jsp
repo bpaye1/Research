@@ -97,6 +97,7 @@
 			<br/>
 	    </fieldset>
 	</div>
+	<div id="dataPanel">
 	<div>
 		<ul id="pagination">
 			<li>First</li>
@@ -112,7 +113,10 @@
 			<li>10</li>
 			<li>Last</li>
 		</ul>
-		<br/>
+	</div>
+	<br/>
+	<br/>
+	<div>
 		<table>
 			<thead id="tableHeader">
 				<tr>
@@ -128,6 +132,8 @@
 			
 			</tbody>
 		</table>
+	</div>
+	
 	</div>
 </body>
 </html>
