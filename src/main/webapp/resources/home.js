@@ -10,6 +10,8 @@ function initialize(){
 		populateDropdown($("#brandStatus"), model.statusCodes);
 		populateDropdown($("#addBrandType"), model.brandTypes);
 		populateDropdown($("#addBrandStatus"), model.statusCodes);
+		populateDropdown($("#editBrandType"), model.brandTypes);
+		populateDropdown($("#editBrandStatus"), model.statusCodes);
 		$("#dataPanel").hide();	
 	});
 	
@@ -41,8 +43,12 @@ function populateDropdown(select, data) {
 }
 
 function populateTable(body, data){
-	 body.html("");
-	 $.each(data, function(id, brand){				
+	
+	var editrow = $("#editRow");
+	editrow.detach();
+	body.html("");
+	
+	$.each(data, function(id, brand){				
 		var row = $("<tr>");
 		$("<td>").text(brand.type).appendTo(row);
 		$("<td>").text(brand.number).appendTo(row);
@@ -51,20 +57,15 @@ function populateTable(body, data){
 		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#'>Edit</a>").appendTo(row);		
 		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#'>Remove</a>").appendTo(row);		
 	
-		$("#" + generateEditButtonId(id)).live("click", function(event){
-			var editrow = $("<tr>");
-			$("<td>").append("<input type='text' id='editBrandType' value='" + brand.type + "' />").appendTo(editrow);
-		 	$("<td>").append("<input type='text' id='editBrandNumber' value='" + brand.number + "'/>").appendTo(editrow);
-		 	$("<td>").append("<input type='text' id='editBrandName' value='" + brand.name + "'/>").appendTo(editrow);
-		 	$("<td>").append("<input type='text' id='editBrandStatus' value='" + brand.status + "'/>").appendTo(editrow);
-		 	$("<td>").append("<a id='saveEditButton' href='#'>Save</a>").appendTo(editrow);
-		 	$("<td>").append("<a id='cancelEditButton' href='#'>Cancel</a>").appendTo(editrow);
-	
+		$("#" + generateEditButtonId(id)).live("click", function(event){						
 		 	row.hide();
 		 	editrow.insertAfter(row);
+		 	$("#editBrandType").val(brand.type);
+		 	$("#editBrandNumber").val(brand.number);
+		 	$("#editBrandName").val(brand.name);
 		 	
 		 	$("#cancelEditButton").live("click", function(event){
-		 		editrow.hide();
+		 		editrow.detach();
 		 		row.show();
 		 	});
 		});

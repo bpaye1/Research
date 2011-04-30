@@ -129,11 +129,31 @@
 				</tr>
 			</thead>
 			<tbody id="tableData">
-			
+				<tr id="editRow">
+					<td>
+						<select id="editBrandType" >
+						</select>
+					</td>
+					<td>
+						<input id="editBrandNumber" type="text" maxlength="6"  size="10" value="22" />
+					</td>
+					<td>
+						<input id="editBrandName" type="text" maxlength="6"  size="10" value="23" />
+					</td>
+					<td>
+						<select id="editBrandStatus" >
+						</select>
+					</td>
+					<td>
+						<a id="saveEditButton" href="#">Save</a>
+					</td>
+					<td>
+						<a id="cancelEditButton" href="#">Cancel</a>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
-	
 	</div>
 </body>
 </html>
