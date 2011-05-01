@@ -4,7 +4,7 @@ public class Brand {
 
 	
 	public enum BrandType{PRIVATE, NATIONAL, EXCLUSIVE};
-	public enum BrandStatusCode{ACTIVE, INACTIVE};
+	public enum BrandStatusCode{ACTIVE, INACTIVE, OBSOLETE};
 	
 	private BrandType type;
 	private Integer number;

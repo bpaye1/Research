@@ -54,8 +54,8 @@ function populateTable(body, data){
 		$("<td>").text(brand.number).appendTo(row);
 		$("<td>").text(brand.name).appendTo(row);
 		$("<td>").text(brand.status).appendTo(row);
-		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#'>Edit</a>").appendTo(row);		
-		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#'>Remove</a>").appendTo(row);		
+		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#' tag='actions'>Edit</a>").appendTo(row);		
+		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#' tag='actions'>Remove</a>").appendTo(row);		
 	
 		$("#" + generateEditButtonId(id)).live("click", function(event){						
 		 	row.hide();
@@ -63,19 +63,25 @@ function populateTable(body, data){
 		 	$("#editBrandType").val(brand.type);
 		 	$("#editBrandNumber").val(brand.number);
 		 	$("#editBrandName").val(brand.name);
+		 	$("#editBrandStatus").val(brand.status);
 		 	
 		 	$("#cancelEditButton").live("click", function(event){
 		 		editrow.detach();
 		 		row.show();
+		 		
+		 		//Show Save and Remove Buttons.
+			 	$("[tag=actions]").show();
 		 	});
+		 	
+		 	//Hide Save and Remove Buttons.
+		 	$("[tag=actions]").hide();
+		 	
 		});
 		
 		$("#" + generateRemoveButtonId(id)).live("click", function(event){
 			
 		});
-		
 		row.appendTo(body);
-		
 	 });
 	 
 	 function generateEditButtonId(id){

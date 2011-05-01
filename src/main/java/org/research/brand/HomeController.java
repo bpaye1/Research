@@ -38,14 +38,14 @@ public class HomeController {
 		System.out.println("In Controller Method !!!!");
 		
 		List<SelectItem> brandTypes = Lists.newArrayList();
-		brandTypes.add(new SelectItem("N", "National"));
-		brandTypes.add(new SelectItem("P", "Private"));
-		brandTypes.add(new SelectItem("E", "Exclusive"));
+		brandTypes.add(new SelectItem(String.valueOf(BrandType.NATIONAL), "National"));
+		brandTypes.add(new SelectItem(String.valueOf(BrandType.PRIVATE), "Private"));
+		brandTypes.add(new SelectItem(String.valueOf(BrandType.EXCLUSIVE), "Exclusive"));
 		
 		List<SelectItem> statusCodes = Lists.newArrayList();
-		statusCodes.add(new SelectItem("ACTV", "Active"));
-		statusCodes.add(new SelectItem("INTV", "Inactive"));
-		statusCodes.add(new SelectItem("OBSL", "Obsolete"));
+		statusCodes.add(new SelectItem(String.valueOf(BrandStatusCode.ACTIVE), "Active"));
+		statusCodes.add(new SelectItem(String.valueOf(BrandStatusCode.INACTIVE), "Inactive"));
+		statusCodes.add(new SelectItem(String.valueOf(BrandStatusCode.OBSOLETE), "Obsolete"));
 		
 		BrandViewModel model = new BrandViewModel("jQuery getJSON is working !!!!");
 		model.setBrandTypes(brandTypes);
@@ -61,7 +61,7 @@ public class HomeController {
 		brands.add(new Brand(BrandType.PRIVATE, 3, "My Own Books", BrandStatusCode.ACTIVE));
 		brands.add(new Brand(BrandType.NATIONAL, 4, "Turtle", BrandStatusCode.ACTIVE));
 		brands.add(new Brand(BrandType.NATIONAL, 5, "Dog", BrandStatusCode.ACTIVE));
-		brands.add(new Brand(BrandType.NATIONAL, 6, "Cat", BrandStatusCode.ACTIVE));
+		brands.add(new Brand(BrandType.NATIONAL, 6, "Cat", BrandStatusCode.INACTIVE));
 		brands.add(new Brand(BrandType.NATIONAL, 7, "Bird", BrandStatusCode.ACTIVE));
 		brands.add(new Brand(BrandType.NATIONAL, 8, "Highway 5", BrandStatusCode.ACTIVE));
 		brands.add(new Brand(BrandType.NATIONAL, 9, "Collin", BrandStatusCode.ACTIVE));
