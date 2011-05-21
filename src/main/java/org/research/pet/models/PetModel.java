@@ -1,26 +1,25 @@
-package org.research.brand.models;
+package org.research.pet.models;
 
-public class Brand {
+import org.research.pet.domain.PetMood;
+import org.research.pet.domain.PetType;
 
-	
-	public enum BrandType{PRIVATE, NATIONAL, EXCLUSIVE};
-	public enum BrandStatusCode{ACTIVE, INACTIVE, OBSOLETE};
-	
-	private BrandType type;
+public class PetModel {
+
+	private PetType type;
 	private Integer number;
 	private String name;
-	private BrandStatusCode status;
+	private PetMood mood;
 	
-	public Brand(BrandType type, Integer number, String name,
-			BrandStatusCode status) {
+	public PetModel(PetType type, Integer number, String name,
+			PetMood mood) {
 		super();
 		this.type = type;
 		this.number = number;
 		this.name = name;
-		this.status = status;
+		this.mood = mood;
 	}
 
-	public BrandType getType() {
+	public PetType getType() {
 		return type;
 	}
 
@@ -32,8 +31,8 @@ public class Brand {
 		return name;
 	}
 
-	public BrandStatusCode getStatus() {
-		return status;
+	public PetMood getMood() {
+		return mood;
 	}
 
 	@Override
@@ -52,7 +51,7 @@ public class Brand {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Brand other = (Brand) obj;
+		PetModel other = (PetModel) obj;
 		if (number == null) {
 			if (other.number != null)
 				return false;

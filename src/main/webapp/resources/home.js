@@ -5,13 +5,13 @@ $(document).ready(function(){
 
 function initialize(){
 	$.getJSON("initialize", function(model){
-		$("#addBrandPanel").hide();		
-		populateDropdown($("#brandType"), model.brandTypes);
-		populateDropdown($("#brandStatus"), model.statusCodes);
-		populateDropdown($("#addBrandType"), model.brandTypes);
-		populateDropdown($("#addBrandStatus"), model.statusCodes);
-		populateDropdown($("#editBrandType"), model.brandTypes);
-		populateDropdown($("#editBrandStatus"), model.statusCodes);
+		$("#addPanel").hide();		
+		populateDropdown($("#petType"), model.petTypes);
+		populateDropdown($("#petMood"), model.petMoods);
+		populateDropdown($("#addPetType"), model.petTypes);
+		populateDropdown($("#addPetMood"), model.petMoods);
+		populateDropdown($("#editPetType"), model.petTypes);
+		populateDropdown($("#editPetMood"), model.petMoods);
 		$("#dataPanel").hide();	
 	});
 	
@@ -20,17 +20,17 @@ function initialize(){
 	});
 	
 	$("#addButton").click(function(event){
-		$("#addBrandPanel").fadeIn("slow");
+		$("#addPanel").fadeIn("slow");
 	});
 	
 	$("#cancelAddButton").click(function(event){
-		$("#addBrandPanel").fadeOut("slow");
+		$("#addPanel").fadeOut("slow");
 	});
 }
 
 function search(){
 	$.getJSON("search", function(model){
-		populateTable($("#tableData"), model.brands);
+		populateTable($("#tableData"), model.pets);
 		$("#dataPanel").show();	
 	});
 }
@@ -48,22 +48,22 @@ function populateTable(body, data){
 	editrow.detach();
 	body.html("");
 	
-	$.each(data, function(id, brand){				
+	$.each(data, function(id, pet){				
 		var row = $("<tr>");
-		$("<td>").text(brand.type).appendTo(row);
-		$("<td>").text(brand.number).appendTo(row);
-		$("<td>").text(brand.name).appendTo(row);
-		$("<td>").text(brand.status).appendTo(row);
+		$("<td>").text(pet.type).appendTo(row);
+		$("<td>").text(pet.number).appendTo(row);
+		$("<td>").text(pet.name).appendTo(row);
+		$("<td>").text(pet.mood).appendTo(row);
 		$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#' tag='actions'>Edit</a>").appendTo(row);		
 		$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#' tag='actions'>Remove</a>").appendTo(row);		
 	
 		$("#" + generateEditButtonId(id)).live("click", function(event){						
 		 	row.hide();
 		 	editrow.insertAfter(row);
-		 	$("#editBrandType").val(brand.type);
-		 	$("#editBrandNumber").val(brand.number);
-		 	$("#editBrandName").val(brand.name);
-		 	$("#editBrandStatus").val(brand.status);
+		 	$("#editPetType").val(pet.type);
+		 	$("#editPetNumber").val(pet.number);
+		 	$("#editPetName").val(pet.name);
+		 	$("#editPetStatus").val(pet.status);
 		 	
 		 	$("#cancelEditButton").live("click", function(event){
 		 		editrow.detach();

@@ -1,4 +1,4 @@
-package org.research.brand.models;
+package org.research.pet.models;
 
 public class SelectItem {
 	private String value;

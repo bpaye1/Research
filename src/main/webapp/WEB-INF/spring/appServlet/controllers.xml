@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- Scans within the base package of the application for @Components to configure as beans -->
-	<context:component-scan base-package="org.research.brand" />
+	<context:component-scan base-package="org.research.pet" />
 	
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />

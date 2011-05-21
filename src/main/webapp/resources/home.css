@@ -7,25 +7,25 @@
 	list-style-type: none;
 }
 
-#addBrandPanel ul {
+#addPanel ul {
 	text-decoration: none;
 	list-style-type: none;
 	
 }
 
-#addBrandPanel li {
+#addPanel li {
 	display: block;
 	margin-right : 10px;
 	margin-bottom : 10px;
 }
 
-#addBrandPanel li label{
+#addPanel li label{
 	float: left;
 	display: block;
     width: 100px;
 }
 
-#addBrandActions li{
+#addActions li{
 	float: left;
 	display: inline;
 	margin-right : 10px;

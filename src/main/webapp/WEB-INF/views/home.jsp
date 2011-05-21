@@ -2,41 +2,41 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Brand Administration</title>
+	<title>Pets</title>
 	<link rel="stylesheet" href="<c:url value="/resources/home.css" />" type="text/css" media="screen, projection">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 	<script type="text/javascript" src="<c:url value="/resources/home.js" /> "></script>
 </head>
 <body>
 	<div id="header">
-		Brand Administration
+		Pets
 	</div>
 	<div id="search">
 		<ul id="searchCrireria">
 			<li>
-				<label for="brandNumber" >
-					Brand Number:
+				<label for="petNumber" >
+					Pet Number:
 				</label>
-				<input id="brandNumber" type="text" maxlength="6"  size="10"/>
+				<input id="petNumber" type="text" maxlength="6"  size="10"/>
 			</li>
 			<li>
-				<label for="brandName" >
-					Brand Name:
+				<label for="petName" >
+					Pet Name:
 				</label>
-				<input id="brandName" type="text" size="10"/>
+				<input id="petName" type="text" size="10"/>
 			</li>
 			<li>
-				<label for="brandType" >
-					Brand Type:
+				<label for="petType" >
+					Pet Type:
 				</label>
-				<select id="brandType" >
+				<select id="petType" >
 				</select>
 			</li>
 			<li>
-				<label for="brandStatus"  >
-					Brand Status:
+				<label for="petMood"  >
+					Pet Mood:
 				</label>
-				<select id="brandStatus" >
+				<select id="petMood" >
 				</select>
 			</li>			
 		</ul>
@@ -55,38 +55,38 @@
 		<br/>
 		<hr/>
 	</div>
-	<div id="addBrandPanel">
+	<div id="addPanel">
 	 	<fieldset>
-	 		<legend>Add Brand</legend>
-	 		<ul id="addBrandForm">
+	 		<legend>Add Pet</legend>
+	 		<ul id="addForm">
 				<li>
-					<label class="addBrandField" for="addBrandNumber" >
-						Brand Number:
+					<label class="addField" for="addPetNumber" >
+						Pet Number:
 					</label>
-					<input id="addBrandNumber" type="text" maxlength="6"  size="10"/>
+					<input id="addPetNumber" type="text" maxlength="6"  size="10"/>
 				</li>
-				<li class="addBrandField">
-					<label for="addBrandName" >
-						Brand Name:
+				<li class="addField">
+					<label for="addPetName" >
+						Pet Name:
 					</label>
-					<input id="addBrandName" type="text" size="10"/>
+					<input id="addPetName" type="text" size="10"/>
 				</li>
-				<li class="addBrandField">
-					<label for="addBrandType" >
-						Brand Type:
+				<li class="addField">
+					<label for="addPetType" >
+						Pet Type:
 					</label>
-					<select id="addBrandType" >
+					<select id="addPetType" >
 					</select>
 				</li>
-				<li class="addBrandField">
-					<label for="addBrandStatus"  >
-						Brand Status:
+				<li class="addField">
+					<label for="addPetMood"  >
+						Pet Mood:
 					</label>
-					<select id="addBrandStatus" >
+					<select id="addPetMood" >
 					</select>
 				</li>			
 			</ul>
-			<ul id="addBrandActions">
+			<ul id="addActions">
 				<li>
 					<input id="cancelAddButton" type="button" value="Cancel">
 				</li>
@@ -120,10 +120,10 @@
 		<table>
 			<thead id="tableHeader">
 				<tr>
-					<th>Brand Type</th>
-					<th>Brand Number</th>
-					<th>Brand Name</th>
-					<th>Brand Status</th>				
+					<th>Type</th>
+					<th>Number</th>
+					<th>Name</th>
+					<th>Mood</th>				
 					<th></th>
 					<th></th>	
 				</tr>
@@ -131,17 +131,17 @@
 			<tbody id="tableData">
 				<tr id="editRow">
 					<td>
-						<select id="editBrandType" >
+						<select id="editPetType" >
 						</select>
 					</td>
 					<td>
-						<input id="editBrandNumber" type="text" maxlength="6"  size="10" value="22" />
+						<input id="editPetNumber" type="text" maxlength="6"  size="10" value="22" />
 					</td>
 					<td>
-						<input id="editBrandName" type="text" maxlength="6"  size="10" value="23" />
+						<input id="editPetName" type="text" maxlength="6"  size="10" value="23" />
 					</td>
 					<td>
-						<select id="editBrandStatus" >
+						<select id="editPetMood" >
 						</select>
 					</td>
 					<td>
