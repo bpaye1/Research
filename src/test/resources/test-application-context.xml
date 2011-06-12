@@ -13,7 +13,7 @@
                 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
        
-        <context:component-scan base-package="org.hockeystats.repository.internal" />
+        <context:component-scan base-package="org.research.pet.repository.internal" />
         
         <!--
                 Activates various annotations to be detected in bean classes: Spring's

@@ -1,4 +1,4 @@
-package org.research.pet.models;
+package org.research.pet.model;
 
 public class SelectItem {
 	private String value;

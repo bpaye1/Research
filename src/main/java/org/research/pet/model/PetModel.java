@@ -1,4 +1,4 @@
-package org.research.pet.models;
+package org.research.pet.model;
 
 import org.research.pet.domain.PetMood;
 import org.research.pet.domain.PetType;

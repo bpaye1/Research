@@ -1,4 +1,4 @@
-package org.research.pet.models;
+package org.research.pet.model;
 
 import java.util.List;
 
