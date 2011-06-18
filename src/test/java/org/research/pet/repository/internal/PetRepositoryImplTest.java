@@ -17,7 +17,7 @@ import org.research.pet.domain.PetMood;
 import org.research.pet.domain.PetType;
 import org.research.pet.model.PetModel;
 import org.research.pet.repository.PetRepository;
-import org.research.pet.repository.internal.PetRepositoryImpl.PetSearchBuilder;
+import org.research.pet.repository.PetRepository.PetSearchBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;

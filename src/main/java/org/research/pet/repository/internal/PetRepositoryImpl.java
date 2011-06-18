@@ -62,15 +62,16 @@ public class PetRepositoryImpl implements PetRepository {
 	}
 
 	public PetSearchBuilder createSearchBuider() {
-		return new PetSearchBuilder() ;
+		Criteria criteria = ((Session)em.getDelegate()).createCriteria(Pet.class);
+		return new PetSearchBuilderImpl(criteria);
 	}
 	
-	public class PetSearchBuilder {
+	public class PetSearchBuilderImpl implements PetSearchBuilder {
 
 		Criteria criteria;
 		
-		PetSearchBuilder(){
-			this.criteria = ((Session) em.getDelegate()).createCriteria(Pet.class);;
+		PetSearchBuilderImpl(Criteria criteria){
+			this.criteria = criteria;
 		}
 		
 		public PetSearchBuilder searchByPetName(String name){
@@ -93,11 +94,12 @@ public class PetRepositoryImpl implements PetRepository {
 			return this;
 		}
 		
-		Criteria build(){
+		public Criteria build(){
 			criteria.addOrder(Order.asc("name"));
 			criteria.setProjection(null);
 			criteria.setResultTransformer(Criteria.ROOT_ENTITY);
 			return criteria;
 		}
+
 	}
 }

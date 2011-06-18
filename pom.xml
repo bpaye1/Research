@@ -1,642 +1,642 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>
         4.0.0
     </modelVersion>
-    <groupId>
+	<groupId>
         org.research
     </groupId>
-    <artifactId>
+	<artifactId>
         brand
     </artifactId>
-    <name>
+	<name>
         Brand
     </name>
-    <packaging>
+	<packaging>
         war
     </packaging>
-    <version>
+	<version>
         1.0.0-BUILD-SNAPSHOT
     </version>
-    <properties>
-        <java-version>
-            1.6
+	<properties>
+		<java-version>
+			1.6
         </java-version>
-        <org.springframework-version>
-            3.0.4.RELEASE
+		<org.springframework-version>
+			3.0.4.RELEASE
         </org.springframework-version>
-        <org.springframework.roo-version>
-            1.0.2.RELEASE
+		<org.springframework.roo-version>
+			1.0.2.RELEASE
         </org.springframework.roo-version>
-        <org.aspectj-version>
-            1.6.9
+		<org.aspectj-version>
+			1.6.9
         </org.aspectj-version>
-        <org.slf4j-version>
-            1.5.10
+		<org.slf4j-version>
+			1.5.10
         </org.slf4j-version>
-    </properties>
-    <dependencies>
-        
-        <!-- Hibernate -->
-        <dependency>
-            <groupId>
+	</properties>
+	<dependencies>
+
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>
                 org.hibernate
             </groupId>
-            <artifactId>
+			<artifactId>
                 hibernate-core
             </artifactId>
-            <version>
+			<version>
                 3.3.2.GA
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.hibernate
             </groupId>
-            <artifactId>
+			<artifactId>
                 hibernate-entitymanager
             </artifactId>
-            <version>
+			<version>
                 3.4.0.GA
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 javax.persistence
             </groupId>
-            <artifactId>
+			<artifactId>
                 persistence-api
             </artifactId>
-            <version>
+			<version>
                 1.0
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 javax.annotation
             </groupId>
-            <artifactId>
+			<artifactId>
                 jsr250-api
             </artifactId>
-            <version>
+			<version>
                 1.0
             </version>
-        </dependency>
-        
-        <!-- Spring -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-context
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-            <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>
                         commons-logging
                     </groupId>
-                    <artifactId>
+					<artifactId>
                         commons-logging
                     </artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-webmvc
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-web
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-orm
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-jdbc
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.springframework
             </groupId>
-            <artifactId>
+			<artifactId>
                 spring-test
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 commons-dbcp
             </groupId>
-            <artifactId>
+			<artifactId>
                 commons-dbcp
             </artifactId>
-            <version>
+			<version>
                 1.2.2
             </version>
-        </dependency>
-        
-        
-        <!-- Jackson JSON Mapper -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>
                 org.codehaus.jackson
             </groupId>
-            <artifactId>
+			<artifactId>
                 jackson-mapper-asl
             </artifactId>
-            <version>
+			<version>
                 1.6.4
             </version>
-        </dependency>
-        
-        <!-- Roo dependencies -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Roo dependencies -->
+		<dependency>
+			<groupId>
                 org.springframework.roo
             </groupId>
-            <artifactId>
+			<artifactId>
                 org.springframework.roo.annotations
             </artifactId>
-            <version>
+			<version>
                 ${org.springframework.roo-version}
             </version>
-            <scope>
+			<scope>
                 provided
             </scope>
-        </dependency>
-        
-        <!-- AspectJ -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>
                 org.aspectj
             </groupId>
-            <artifactId>
+			<artifactId>
                 aspectjrt
             </artifactId>
-            <version>
+			<version>
                 ${org.aspectj-version}
             </version>
-        </dependency>
-        
-        <!-- Logging -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>
                 org.slf4j
             </groupId>
-            <artifactId>
+			<artifactId>
                 slf4j-api
             </artifactId>
-            <version>
+			<version>
                 ${org.slf4j-version}
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.slf4j
             </groupId>
-            <artifactId>
+			<artifactId>
                 jcl-over-slf4j
             </artifactId>
-            <version>
+			<version>
                 ${org.slf4j-version}
             </version>
-            <scope>
+			<scope>
                 runtime
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.slf4j
             </groupId>
-            <artifactId>
+			<artifactId>
                 slf4j-log4j12
             </artifactId>
-            <version>
+			<version>
                 ${org.slf4j-version}
             </version>
-            <scope>
+			<scope>
                 runtime
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 log4j
             </groupId>
-            <artifactId>
+			<artifactId>
                 log4j
             </artifactId>
-            <version>
+			<version>
                 1.2.15
             </version>
-            <exclusions>
-                <exclusion>
-                    <groupId>
+			<exclusions>
+				<exclusion>
+					<groupId>
                         javax.mail
                     </groupId>
-                    <artifactId>
+					<artifactId>
                         mail
                     </artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>
                         javax.jms
                     </groupId>
-                    <artifactId>
+					<artifactId>
                         jms
                     </artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>
                         com.sun.jdmk
                     </groupId>
-                    <artifactId>
+					<artifactId>
                         jmxtools
                     </artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>
                         com.sun.jmx
                     </groupId>
-                    <artifactId>
+					<artifactId>
                         jmxri
                     </artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>
+				</exclusion>
+			</exclusions>
+			<scope>
                 runtime
             </scope>
-        </dependency>
-        
-        <!-- @Inject -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- @Inject -->
+		<dependency>
+			<groupId>
                 javax.inject
             </groupId>
-            <artifactId>
+			<artifactId>
                 javax.inject
             </artifactId>
-            <version>
+			<version>
                 1
             </version>
-        </dependency>
-        
-        <!-- Servlet -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>
                 javax.servlet
             </groupId>
-            <artifactId>
+			<artifactId>
                 servlet-api
             </artifactId>
-            <version>
+			<version>
                 2.5
             </version>
-            <scope>
+			<scope>
                 provided
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 javax.servlet.jsp
             </groupId>
-            <artifactId>
+			<artifactId>
                 jsp-api
             </artifactId>
-            <version>
+			<version>
                 2.1
             </version>
-            <scope>
+			<scope>
                 provided
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 javax.servlet
             </groupId>
-            <artifactId>
+			<artifactId>
                 jstl
             </artifactId>
-            <version>
+			<version>
                 1.2
             </version>
-        </dependency>
-        
-        <!-- Test -->
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>
                 junit
             </groupId>
-            <artifactId>
+			<artifactId>
                 junit
             </artifactId>
-            <version>
+			<version>
                 4.7
             </version>
-            <scope>
+			<scope>
                 test
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.hamcrest
             </groupId>
-            <artifactId>
+			<artifactId>
                 hamcrest-all
             </artifactId>
-            <version>
+			<version>
                 1.1
             </version>
-            <type>
+			<type>
                 jar
             </type>
-            <scope>
+			<scope>
                 test
             </scope>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 org.mockito
             </groupId>
-            <artifactId>
+			<artifactId>
                 mockito-all
             </artifactId>
-            <version>
+			<version>
                 1.8.4
             </version>
-        </dependency>
-        
-        <!-- Google -->
-        
-        <dependency>
-            <groupId>
+		</dependency>
+
+		<!-- Google -->
+
+		<dependency>
+			<groupId>
                 com.google.collections
             </groupId>
-            <artifactId>
+			<artifactId>
                 google-collections
             </artifactId>
-            <version>
+			<version>
                 1.0
             </version>
-        </dependency>
-        <dependency>
-            <groupId>
+		</dependency>
+		<dependency>
+			<groupId>
                 com.h2database
             </groupId>
-            <artifactId>
+			<artifactId>
                 h2
             </artifactId>
-            <version>
+			<version>
                 1.1.106
             </version>
-        </dependency>
-        
-    </dependencies>
-    <repositories>
-        <!-- For testing against latest Spring snapshots -->
-        <repository>
-            <id>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+
+	</dependencies>
+	<repositories>
+		<!-- For testing against latest Spring snapshots -->
+		<repository>
+			<id>
                 org.springframework.maven.snapshot
             </id>
-            <name>
+			<name>
                 Spring Maven Snapshot Repository
             </name>
-            <url>
+			<url>
                 http://maven.springframework.org/snapshot
             </url>
-            <releases>
-                <enabled>
-                    false
-                </enabled>
-            </releases>
-            <snapshots>
-                <enabled>
-                    true
-                </enabled>
-            </snapshots>
-        </repository>
-        <!-- For developing against latest Spring milestones -->
-        <repository>
-            <id>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<!-- For developing against latest Spring milestones -->
+		<repository>
+			<id>
                 org.springframework.maven.milestone
             </id>
-            <name>
+			<name>
                 Spring Maven Milestone Repository
             </name>
-            <url>
+			<url>
                 http://maven.springframework.org/milestone
             </url>
-            <snapshots>
-                <enabled>
-                    false
-                </enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>
                     org.apache.maven.plugins
                 </groupId>
-                <artifactId>
+				<artifactId>
                     maven-compiler-plugin
                 </artifactId>
-                <configuration>
-                    <source>
-                        ${java-version}
+				<configuration>
+					<source>
+						${java-version}
                     </source>
-                    <target>
-                        ${java-version}
+					<target>
+						${java-version}
                     </target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.apache.maven.plugins
                 </groupId>
-                <artifactId>
+				<artifactId>
                     maven-war-plugin
                 </artifactId>
-                <configuration>
-                    <warName>
-                        Brand
+				<configuration>
+					<warName>
+						Brand
                     </warName>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.apache.maven.plugins
                 </groupId>
-                <artifactId>
+				<artifactId>
                     maven-dependency-plugin
                 </artifactId>
-                <executions>
-                    <execution>
-                        <id>
+				<executions>
+					<execution>
+						<id>
                             install
                         </id>
-                        <phase>
+						<phase>
                             install
                         </phase>
-                        <goals>
-                            <goal>
+						<goals>
+							<goal>
                                 sources
                             </goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.codehaus.mojo
                 </groupId>
-                <artifactId>
+				<artifactId>
                     aspectj-maven-plugin
                 </artifactId>
-                <!-- Have to use version 1.2 since version 1.3 does not appear to work
-                with ITDs -->
-                <version>
+				<!-- Have to use version 1.2 since version 1.3 does not appear to work 
+					with ITDs -->
+				<version>
                     1.2
                 </version>
-                <dependencies>
-                    <!-- You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
-                    <dependency>
-                        <groupId>
+				<dependencies>
+					<!-- You must use Maven 2.0.9 or above or these are ignored (see MNG-2972) -->
+					<dependency>
+						<groupId>
                             org.aspectj
                         </groupId>
-                        <artifactId>
+						<artifactId>
                             aspectjrt
                         </artifactId>
-                        <version>
+						<version>
                             ${org.aspectj-version}
                         </version>
-                    </dependency>
-                    <dependency>
-                        <groupId>
+					</dependency>
+					<dependency>
+						<groupId>
                             org.aspectj
                         </groupId>
-                        <artifactId>
+						<artifactId>
                             aspectjtools
                         </artifactId>
-                        <version>
+						<version>
                             ${org.aspectj-version}
                         </version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<goals>
+							<goal>
                                 compile
                             </goal>
-                            <goal>
+							<goal>
                                 test-compile
                             </goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <outxml>
-                        true
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<outxml>
+						true
                     </outxml>
-                    <source>
-                        ${java-version}
+					<source>
+						${java-version}
                     </source>
-                    <target>
-                        ${java-version}
+					<target>
+						${java-version}
                     </target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.apache.maven.plugins
                 </groupId>
-                <artifactId>
+				<artifactId>
                     maven-surefire-plugin
                 </artifactId>
-                <configuration>
-                    <junitArtifactName>
-                        junit:junit
+				<configuration>
+					<junitArtifactName>
+						junit:junit
                     </junitArtifactName>
-                    <excludes>
-                        <exclude>
-                            **/*_Roo_*
+					<excludes>
+						<exclude>
+							**/*_Roo_*
                         </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.codehaus.mojo
                 </groupId>
-                <artifactId>
+				<artifactId>
                     tomcat-maven-plugin
                 </artifactId>
-                <version>
+				<version>
                     1.0-beta-1
                 </version>
-            </plugin>
-            <plugin>
-                <groupId>
+			</plugin>
+			<plugin>
+				<groupId>
                     org.mortbay.jetty
                 </groupId>
-                <artifactId>
+				<artifactId>
                     maven-jetty-plugin
                 </artifactId>
-                <version>
+				<version>
                     6.1.10
                 </version>
-                <configuration>
-                    <scanIntervalSeconds>
-                        10
+				<configuration>
+					<scanIntervalSeconds>
+						10
                     </scanIntervalSeconds>
-                    <stopKey>
-                        foo
+					<stopKey>
+						foo
                     </stopKey>
-                    <stopPort>
-                        9999
+					<stopPort>
+						9999
                     </stopPort>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

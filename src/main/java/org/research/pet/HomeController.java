@@ -8,9 +8,10 @@ import org.research.pet.model.PetModel;
 import org.research.pet.model.PetViewModel;
 import org.research.pet.model.SelectItem;
 import org.research.pet.repository.PetRepository;
-import org.research.pet.repository.internal.PetRepositoryImpl.PetSearchBuilder;
+import org.research.pet.repository.PetRepository.PetSearchBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,7 +21,7 @@ import com.google.common.collect.Lists;
 /**
  * Handles requests for the application home page.
  */
-
+@Transactional
 @Controller
 public class HomeController {
 	
@@ -53,7 +54,7 @@ public class HomeController {
 		model.setPetMoods(petMoods);
 		return model;
 	}
-		
+	
 	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public @ResponseBody PetViewModel getData(){
 //		List<PetModel> pets = Lists.newArrayList();

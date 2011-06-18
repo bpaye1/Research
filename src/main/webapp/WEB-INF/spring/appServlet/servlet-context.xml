@@ -52,16 +52,16 @@
                 p:properties-ref="jdbcProperties" />
 
         <!-- Data Source -->
-        <!--
-		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+       
+		<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
                 destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
                 p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
-		-->
+		
 		<!-- H2 Database -->
-		<jdbc:embedded-database id="dataSource" type="H2">
-	        <jdbc:script location="classpath:schema.sql"/>
+		<jdbc:initialize-database>
+			<jdbc:script location="classpath:schema.sql"/>
 			<jdbc:script location="classpath:test-data.sql"/>
-    	</jdbc:embedded-database>
+		</jdbc:initialize-database>
 		
         <!--  JPA EntityManagerFactory -->
         <beans:bean id="entityManagerFactory"
@@ -73,7 +73,7 @@
 								p:showSql="${jpa.showSql}"	/>
                 </beans:property>
         </beans:bean>
-
+        
         <!-- Transaction manager for a single JPA EntityManagerFactory -->
         <beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
                 p:entityManagerFactory-ref="entityManagerFactory" />
