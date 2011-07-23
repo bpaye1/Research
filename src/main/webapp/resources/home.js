@@ -29,7 +29,15 @@ function initialize(){
 }
 
 function search(){
-	$.getJSON("search", function(model){
+	
+	var petSearch = {
+		number : $("#petNumber").val(),
+		name : $("#petName").val(),
+		type : $("#petType").val(),
+		mood : $("#petMood").val()
+	};
+	
+	$.getJSON("search", petSearch, function(model){
 		populateTable($("#tableData"), model.pets);
 		$("#dataPanel").show();	
 	});

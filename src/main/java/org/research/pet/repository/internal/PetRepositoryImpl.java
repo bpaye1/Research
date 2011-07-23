@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -26,14 +25,6 @@ public class PetRepositoryImpl implements PetRepository {
 
 	@PersistenceContext
 	EntityManager em;
-
-	@SuppressWarnings("unchecked")
-	public List<PetModel> all(){
-		String queryString = "select new org.research.pet.model.PetModel(p.type, p.number, p.name, p.mood)" +
-			"from Pet p";
-		Query query = em.createQuery(queryString);
-		return query.getResultList();
- }
 	
 	public Pet find(Long id) {
 		return em.find(Pet.class, id);
@@ -41,7 +32,7 @@ public class PetRepositoryImpl implements PetRepository {
 	
 	@SuppressWarnings("unchecked")
 	public List<PetModel> matching(PetSearchBuilder searchBuilder) {	
-		List<Pet> pets = searchBuilder.build().list();
+		List<Pet> pets = ((PetSearchBuilderImpl)searchBuilder).build().list();
 		List<PetModel> models = Lists.newArrayList();
 		for (Pet pet : pets){
 			models.add(new PetModel(pet.getType(), pet.getNumber(), pet.getName(), pet.getMood()));

@@ -14,13 +14,11 @@ public interface PetRepository {
 	void add(Pet pet);	
 	void remove(Pet pet);
 	PetSearchBuilder createSearchBuider();
-	List<PetModel> all();
 	
 	public interface PetSearchBuilder {
 		PetSearchBuilder searchByPetName(String name);
 		PetSearchBuilder searchByPetNumber(Integer number);
 		PetSearchBuilder searchByPetMood(PetMood mood);
 		PetSearchBuilder searchByPetType(PetType type);
-		Criteria build();
 	}
 }

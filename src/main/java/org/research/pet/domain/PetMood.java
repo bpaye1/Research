@@ -38,6 +38,8 @@ public enum PetMood {
 		return mood;
 	}
 	
+	
+	
 	public static class PetMoodUserType extends AbstractUserType{
 
 		public Object nullSafeGet(ResultSet rs, String[] names, Object owner) throws HibernateException, SQLException {
@@ -57,7 +59,7 @@ public enum PetMood {
 			}
 		}
 
-		@SuppressWarnings({ "rawtypes" })
+		
 		public Class returnedClass() {
 			return PetMood.class;
 		}

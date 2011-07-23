@@ -2,6 +2,8 @@ package org.research.pet.model;
 
 import java.util.List;
 
+import org.research.pet.ui.SelectItem;
+
 
 public class PetViewModel {
 

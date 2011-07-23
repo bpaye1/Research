@@ -37,7 +37,6 @@ public class PetRepositoryImplTest extends AbstractTransactionalJUnit4SpringCont
 	private Pet pitou = new Pet(PetType.DOG, 2, "pitou", PetMood.INDIFFERENT);
 	private Pet garfield = new Pet(PetType.CAT, 3, "garfield", PetMood.INDIFFERENT);
 	
-	
 	@Test
 	public void findMatchingPetTypeCriteria() throws Exception {
 		setUp();
