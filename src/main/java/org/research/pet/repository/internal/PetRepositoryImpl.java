@@ -26,8 +26,10 @@ public class PetRepositoryImpl implements PetRepository {
 	@PersistenceContext
 	EntityManager em;
 	
-	public Pet find(Long id) {
-		return em.find(Pet.class, id);
+	public Pet find(Integer number) {
+		Criteria criteria = ((Session)em.getDelegate()).createCriteria(Pet.class);
+		criteria.add(Restrictions.eq("number", number));
+		return (Pet)criteria.uniqueResult();
 	}
 	
 	@SuppressWarnings("unchecked")

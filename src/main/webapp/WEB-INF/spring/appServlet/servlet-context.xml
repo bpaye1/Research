@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
@@ -16,68 +13,79 @@
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<!-- Imports user-defined @Controller beans that process client requests -->
 	<beans:import resource="controllers.xml" />
-	
-	
-        <!--
-                Activates various annotations to be detected in bean classes: Spring's
-                @Required and @Autowired, as well as JSR 250's @PostConstruct,
-                @PreDestroy and @Resource (if available) and JPA's @PersistenceContext
-                and @PersistenceUnit (if available).
-        -->
-        <context:annotation-config />
 
-        <!--
-                Instruct Spring to perform declarative transaction management
-                automatically on annotated classes.
-        -->
-        <tx:annotation-driven />
 
-        <!-- Resource definitions -->
-        <util:properties id="jdbcProperties" location="classpath:jdbc.properties" />
+	<!-- Activates various annotations to be detected in bean classes: Spring's 
+		@Required and @Autowired, as well as JSR 250's @PostConstruct, @PreDestroy 
+		and @Resource (if available) and JPA's @PersistenceContext and @PersistenceUnit 
+		(if available). -->
+	<context:annotation-config />
 
-        <beans:bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-                p:properties-ref="jdbcProperties" />
+	<!-- Instruct Spring to perform declarative transaction management automatically 
+		on annotated classes. -->
+	<tx:annotation-driven />
 
-        <!-- Data Source -->
-       
-		<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-                destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
-                p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
-		
-		<!-- H2 Database -->
-		<jdbc:initialize-database>
-			<jdbc:script location="classpath:schema.sql"/>
-			<jdbc:script location="classpath:test-data.sql"/>
-		</jdbc:initialize-database>
-		
-        <!--  JPA EntityManagerFactory -->
-        <beans:bean id="entityManagerFactory"
-                class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-                p:dataSource-ref="dataSource" p:jpaProperties-ref="jdbcProperties">
-                <beans:property name="jpaVendorAdapter">
-                        <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
-                                p:database="${jpa.database}" 								
-								p:showSql="${jpa.showSql}"	/>
-                </beans:property>
-        </beans:bean>
-        
-        <!-- Transaction manager for a single JPA EntityManagerFactory -->
-        <beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-                p:entityManagerFactory-ref="entityManagerFactory" />
-				
-		
-	
+	<!-- Resource definitions -->
+	<util:properties id="jdbcProperties" location="classpath:jdbc.properties" />
+
+	<beans:bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		p:properties-ref="jdbcProperties" />
+
+	<!-- Data Source -->
+
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="${jdbc.driverClassName}"
+		p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}" />
+
+	<!-- H2 Database -->
+	<jdbc:initialize-database>
+		<jdbc:script location="classpath:schema.sql" />
+		<jdbc:script location="classpath:test-data.sql" />
+	</jdbc:initialize-database>
+
+	<!-- JPA EntityManagerFactory -->
+	<beans:bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+		p:dataSource-ref="dataSource" p:jpaProperties-ref="jdbcProperties">
+		<beans:property name="jpaVendorAdapter">
+			<beans:bean
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+				p:database="${jpa.database}" p:showSql="${jpa.showSql}" />
+		</beans:property>
+	</beans:bean>
+
+	<!-- Transaction manager for a single JPA EntityManagerFactory -->
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager"
+		p:entityManagerFactory-ref="entityManagerFactory" />
+
+	<beans:bean id="jacksonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	<beans:bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list>
+				<beans:ref bean="jacksonMessageConverter" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
 </beans:beans>

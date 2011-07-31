@@ -123,7 +123,7 @@ public class PetRepositoryImplTest extends AbstractTransactionalJUnit4SpringCont
 	@Test
 	public void removePet() throws Exception {
 		repository.add(bailey);
-		Pet persitedBailey = repository.find(bailey.getId());
+		Pet persitedBailey = repository.find(bailey.getNumber());
 		repository.remove(persitedBailey);
 		List<Map<String, Object>> result = 
 			simpleJdbcTemplate.queryForList("SELECT * FROM PET");

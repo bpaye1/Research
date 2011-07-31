@@ -1,14 +1,30 @@
 package org.research.pet.model;
 
+import java.io.Serializable;
+
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.research.pet.domain.PetMood;
 import org.research.pet.domain.PetType;
 
-public class PetModel {
+public class PetModel implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("type")
 	private PetType type;
+	
+	@JsonProperty("number")
 	private Integer number;
+	
+	@JsonProperty("name")
 	private String name;
+	
+	@JsonProperty("mood")
 	private PetMood mood;
+	
+	@Deprecated
+	public PetModel(){
+	}
 	
 	public PetModel(PetType type, Integer number, String name,
 			PetMood mood) {
@@ -33,6 +49,22 @@ public class PetModel {
 
 	public PetMood getMood() {
 		return mood;
+	}
+	
+	public void setType(PetType type) {
+		this.type = type;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setMood(PetMood mood) {
+		this.mood = mood;
 	}
 
 	@Override

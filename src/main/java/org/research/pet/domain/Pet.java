@@ -68,6 +68,18 @@ public class Pet {
 	public PetMood getMood() {
 		return mood;
 	}
+	
+	public void setType(PetType type) {
+		this.type = type;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setMood(PetMood mood) {
+		this.mood = mood;
+	}
 
 	@Override
 	public int hashCode() {
