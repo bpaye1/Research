@@ -45,7 +45,6 @@
 
 table{
 	border-style: none;
-	color: #003399;
 	border-collapse:collapse;
 }
 
@@ -64,8 +63,7 @@ tr{
 	border-style :solid;
 	border-width :1px;
 	font-weight: normal;
-	text-align: left;
-	font-size: 14px;
+	text-align: left;	
 	
 }
 
@@ -74,5 +72,4 @@ td{
 	border-color: inherit;
 	border-style :solid;
 	border-width :1px;
-	text-transform: capitalize;
 }

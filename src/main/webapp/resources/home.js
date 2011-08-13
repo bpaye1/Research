@@ -34,7 +34,7 @@ function initialize(){
 	function populateDropdown(select, data) {
 	    select.html('');
 	    $.each(data, function(id, option) {	       
-	        select.append($('<option></option>').val(option.value).html(option.label));
+	        select.append($("<option/>", { value : option.value, html : option.label}));
 	    });      
 	}
 }
@@ -56,7 +56,7 @@ function search(){
 		
 		var editrow = $("#editRow");
 		editrow.detach();
-		body.html("");
+		body.empty();
 		
 		$.each(data, function(id, pet){				
 			var row = $("<tr>");
@@ -64,12 +64,34 @@ function search(){
 			$("<td>").text(pet.number).appendTo(row);
 			$("<td>").text(pet.name).appendTo(row);
 			$("<td>").text(pet.mood).appendTo(row);
-			$("<td>").append("<a id='" + generateEditButtonId(id) + "' href='#' tag='actions'>Edit</a>").appendTo(row);		
-			$("<td>").append("<a id='" + generateRemoveButtonId(id) + "' href='#' tag='actions'>Remove</a>").appendTo(row);		
+			
+			var editLink = $("<a/>", { 
+				id : generateEditButtonId(id), 
+				href : "#", 
+				class : "action",
+				html : "Edit"});
+		
+			$("<td>").append(editLink).appendTo(row);
+			
+			var removeLink = $("<a/>", { 
+				id : generateRemoveButtonId(id), 
+				href : "#",
+				class : "action",
+				html : "Remove"});
+			
+			$("<td>").append(removeLink).appendTo(row);		
 		
 			$("#" + generateEditButtonId(id)).live("click", function(event){						
-			 	row.hide();
+			 	
+				// Hide Current Row.
+				row.hide();
+				
+				// Display Edit Row.
 			 	editrow.insertAfter(row);
+			 	
+			 	//Hide Edit and Remove links.
+			 	$(".action").hide();
+			 	
 			 	$("#editPetType").val(pet.type);
 			 	$("#editPetNumber").val(pet.number);
 			 	$("#editPetName").val(pet.name);
@@ -77,33 +99,39 @@ function search(){
 			 	
 			 	$("#saveEditButton").live("click", function(event){
 			 		var petModel = {
-			 				type :  $("#editPetType").val(),
-			 				number : $("#editPetNumber").val(),
-			 				name : $("#editPetName").val(),
-			 				mood : $("#editPetMood").val()			
+		 				type :  $("#editPetType").val(),
+		 				number : $("#editPetNumber").val(),
+		 				name : $("#editPetName").val(),
+		 				mood : $("#editPetMood").val()			
 			 			};
 			 			
-			 			$.postJSON("edit", petModel, function(model){
-			 				alert(model.message);		
-			 			});
+		 			$.postJSON("edit", petModel, function(model){
+		 				alert(model.message);
+		 				search();
+		 			});
 			 		
 			 	});
 			 	
 			 	$("#cancelEditButton").live("click", function(event){
 			 		editrow.detach();
 			 		row.show();
-			 		
-			 		//Show Save and Remove Buttons.
-				 	$("[tag=actions]").show();
+			 		//Show Edit and Remove links.
+				 	$(".action").show();
 			 	});
-			 	
-			 	//Hide Save and Remove Buttons.
-			 	$("[tag=actions]").hide();
-			 	
 			});
 			
 			$("#" + generateRemoveButtonId(id)).live("click", function(event){
-				
+				var petModel = {
+		 				type :  pet.type,
+		 				number : pet.number,
+		 				name : pet.name,
+		 				mood : pet.mood			
+					};
+
+				$.postJSON("remove", petModel, function(model){
+	 				alert(model.message);
+	 				search();
+	 			});
 			});
 			row.appendTo(body);
 		 });

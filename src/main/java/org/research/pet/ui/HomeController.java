@@ -106,5 +106,15 @@ public class HomeController {
 		return viewModel;
 		
 	}
+	
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public @ResponseBody PetViewModel removePet(@RequestBody PetModel model){
+		Pet pet = repository.find(model.getNumber());
+		repository.remove(pet);
+		PetViewModel viewModel = new PetViewModel();
+		viewModel.setMessage("Pet " + model.getName() + " removed.");
+		return viewModel;
+		
+	}
 }
 
