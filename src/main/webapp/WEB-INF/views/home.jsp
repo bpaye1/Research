@@ -4,12 +4,14 @@
 <head>
 	<title>Pets</title>
 	<link rel="stylesheet" href="<c:url value="/resources/home.css" />" type="text/css" media="screen, projection">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
 	<script type="text/javascript" src="<c:url value="/resources/home.js" /> "></script>
 </head>
 <body>
 	<div id="header">
 		Pets
+	</div>
+	<div id="messagePanel">
 	</div>
 	<div id="search">
 		<ul id="searchCrireria">
@@ -129,28 +131,6 @@
 				</tr>
 			</thead>
 			<tbody id="tableData">
-				<tr id="editRow">
-					<td>
-						<select id="editPetType" >
-						</select>
-					</td>
-					<td>
-						<input id="editPetNumber" type="text" maxlength="6"  size="10" value="22" />
-					</td>
-					<td>
-						<input id="editPetName" type="text" maxlength="6"  size="10" value="23" />
-					</td>
-					<td>
-						<select id="editPetMood" >
-						</select>
-					</td>
-					<td>
-						<a id="saveEditButton" href="#">Save</a>
-					</td>
-					<td>
-						<a id="cancelEditButton" href="#">Cancel</a>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>

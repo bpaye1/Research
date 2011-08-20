@@ -7,6 +7,12 @@
 	list-style-type: none;
 }
 
+#messagePanel {
+	color:navy;
+	border-style: solid;
+	border-width: 1px;
+}
+
 #addPanel ul {
 	text-decoration: none;
 	list-style-type: none;
