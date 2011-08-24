@@ -62,7 +62,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public @ResponseBody PetViewModel getData(PetModel search){
+	public @ResponseBody PetViewModel search(PetModel search){
 		PetSearchBuilder searchBuilder = repository.createSearchBuider();
 		
 		if(search.getNumber() != null){
