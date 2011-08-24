@@ -123,11 +123,6 @@ function populateTable(body, data){
 	 				displayMessage(model.message);
 	 				search();
 	 			});
-	 			
-		 		//editrow.detach();
-		 		//row.show();
-		 		//Show Edit and Remove links.
-			 	//$(".action").show();
 		 	});
 		 	
 		 	$("#cancelEditButton").live("click", function(event){
@@ -146,14 +141,14 @@ function populateTable(body, data){
 		
 		$("<td>").append(removeLink).appendTo(row);	
 		
-		removeLink.live("click", function(event){
+		$("#" + generateRemoveButtonId(id)).live("click", function(event){
 			var petModel = {
 	 				type :  pet.type,
 	 				number : pet.number,
 	 				name : pet.name,
 	 				mood : pet.mood			
-				};
-
+			};
+			
 			$.postJSON("remove", petModel, function(model){
 				search();
 				displayMessage(model.message);
